@@ -1,11 +1,10 @@
 class VibeQ {
 	
-	constructor (source, openTube, closedTube, phase_shift = 0, fade_type='linear') {
+	constructor (source, openTube, closedTube, fade_type='linear') {
 		this.source     = source;
 		this.context    = source.context;
 		this.openTube   = openTube;
 		this.closedTube = closedTube;
-		this.PHASE_SHIFT= phase_shift;
 		this.FADE_TYPE  = fade_type;
 
 		this.tubes = {};
@@ -74,8 +73,7 @@ window.addEventListener('click', function() {
 	bindSliders(tube,'peaking-sliders');
 	bindSliders(tube2,'peaking-sliders2');
 
-	vibes.connect(audioContext.destination);
-
+	vibes.connect(streamNode);
 
 	var peakingSliders = document.querySelectorAll("input[type=range]");
 
